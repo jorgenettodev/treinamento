@@ -38,9 +38,18 @@ main {
 
 .movie:hover {
     transform: scale(1.05);
-    opacity: 0.6;
+    opacity: 0.69
+    margin-top: 10px;
 }
 
-.movie img {
-    max-width: 100%;
+h2 {
+    color: #333;
+}
+
+p {
+    color: #555;
+}
+
+a {
+    text-decoration: none;
 }
