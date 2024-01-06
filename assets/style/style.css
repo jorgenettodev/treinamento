@@ -38,8 +38,12 @@ main {
 
 .movie:hover {
     transform: scale(1.05);
-    opacity: 0.69
+    opacity: 0.69;
     margin-top: 10px;
+}
+
+.movie img {
+    width: 100%;
 }
 
 h2 {
