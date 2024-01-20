@@ -1,7 +1,7 @@
 let movies = [];
 
 function addMovieToGrid(id, title,description,poster) {
-    const movieGrid = document.getElementById('movie-grid');
+    const movieGrid = document.getElementById('movieGrid');
 
     const movieElement = document.createElement('article');
 
