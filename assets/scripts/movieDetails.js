@@ -1,10 +1,14 @@
-let movie = [];
+function convertDate(date) {
+    const slice = date.split("-");
 
-function displayMovieDetail() {
+    const dateFormated = `${slice[2]}/${slice[1]}/${slice[0]}`;
+    return dateFormated;
+}
+
+function displayMovieDetail(movieDetail) {
+
     const movieDetailContainer = document.getElementById('movieDetail');
     movieDetailContainer.innerHTML = "";
-
-    const movieDetail = movie[0];
 
     const genres = movieDetail.genres.map((genre) => {
         return genre.name;
@@ -17,19 +21,26 @@ function displayMovieDetail() {
         // Movie poster
         movieDetailsElement.innerHTML = `
         <div class="movie-poster">
-            <img src=${movieDetail.image_url} alt="Imagem do filme ${movieDetail.name}"/>
+            <img src=${movieDetail.image_url} alt="Imagem do filme ${movieDetail.name}">
         </div>
         <div class="movie-info">
             <h1>${movieDetail.name}</h1>
             <strong>Nota: ${movieDetail.rating}</strong>
+            
+            <p>
+            <strong>Duração: </strong> ${movieDetail.duration} min
+        </p>
+        <p>
+            <strong>Data de lançamento: </strong>${convertDate(movieDetail.released_at)}
+        </p>
+        <p>
+            <strong>Descrição: </strong> ${movieDetail.description}
+        </p>
+        <p>
+            <strong>Gênero: </strong> ${genres.join(", ")}
+        </p>
+
         </div>
-        <p><strong>Duração: ${movieDetail.duration} min</strong></p>
-        <p><strong>Data de lançamento: ${movieDetail.released_at}</strong></p>
-        <p><strong>Descrição: </strong>${movieDetail.description}</p>
-        <p><strong>Gênero: </strong>${genres.join(", ")}</p>
-
-
-
         `;
         movieDetailContainer.appendChild(movieDetailsElement);
     }
@@ -49,8 +60,7 @@ async function getMovie() {
     , )
     const movieResponse = await response.json();
 
-    movie.push(movieResponse);
-    displayMovieDetail();
+    displayMovieDetail(movieResponse);
     console.log(movieResponse);
 
 

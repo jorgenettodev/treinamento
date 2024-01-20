@@ -21,7 +21,37 @@ main {
     border-radius: 5px;
 }
 
+.movie-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movie-poster {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.movie-poster img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.movie-info {
+    flex: 2;
+    /* text-align: justify; */
+    justify-content: space-between;
+}
+
  a {
     text-decoration: none;
     color: #fff;
  }
+
+@media screen and (max-width: 700px) {
+    .movie-details {
+        flex-direction: column;
+    }
+}
