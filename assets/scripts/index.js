@@ -1,5 +1,13 @@
 let movies = [];
 
+function limitText(text, maxLength) {
+    if (text.length > maxLength) {
+        return text.substring(0, maxLength) + "...";
+    } else {
+        return text;
+    }
+}
+
 function addMovieToGrid(id, title,description,poster) {
     const movieGrid = document.getElementById('movieGrid');
 
@@ -7,11 +15,13 @@ function addMovieToGrid(id, title,description,poster) {
 
     movieElement.classList.add('movie');
 
+    const truncatedDescription = limitText(description, 100);
+
     movieElement.innerHTML = `
     <img src="${poster}" alt="Filme"/>
     <div class="movie-details">
         <h2>${title}</h2>
-        <p>${description}</p>
+        <p>${truncatedDescription}</p>
     </div>
     `;
 
