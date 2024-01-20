@@ -24,7 +24,13 @@ function addMovieToGrid(id, title,description,poster) {
 async function getMovies() {
 
     try {
-        const response = await fetch("https://085b-200-133-129-60.ngrok-free.app/api/v1/movies/" )
+        const response = await fetch("https://1089-2804-14d-1282-96d1-6bed-1637-2dd4-9086.ngrok-free.app/api/v1/movies/", {
+            method: "GET",
+        headers: {
+            "ngrok-skip-browser-warning": "69420"
+        }
+        }
+        , )
 
     const moviesResponse = await response.json();
 
