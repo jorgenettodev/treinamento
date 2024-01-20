@@ -25,6 +25,10 @@ function addMovieToGrid(id, title,description,poster) {
     </div>
     `;
 
+    movieElement.addEventListener('click', (e) => {
+        window.location.href = `/movie-detail.html?id=${id}`;
+    });
+
     movieGrid.appendChild(movieElement);
 };
 
